@@ -61,11 +61,11 @@ namespace SegundoParcial.Core
         public string GetNotaByLegajo(string legajo)
         {
 
-            string? found = Notas.Where(x => x.Legajo == legajo).ToString();
+            var found = Notas.Where(x => x.Legajo == legajo).FirstOrDefault();
 
             if (found is not null)
             {
-                return found;
+                return found.Calificacion.ToString();
             }
             return "No encontrado";
             
